@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
+import { ENV } from "./lib/env.js";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -7,14 +7,13 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "./lib/db.js"; 
 
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = ENV.PORT || 3000;
 
 app.use(express.json());
 
@@ -22,7 +21,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 const frontendDistPath = path.resolve(__dirname, "..","..","frontend","dist");
 
-if (process.env.NODE_ENV === "production") {
+if (ENV.NODE_ENV === "production") {
   app.use(express.static(frontendDistPath));
 
   app.get("{*path}", (_req, res) => {
