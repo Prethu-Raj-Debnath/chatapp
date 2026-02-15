@@ -1,4 +1,7 @@
+import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 function LoginPage() {
-  return <div>login page</div>;
+  return <BorderAnimatedContainer>
+    <div className=" bg-amber-100">login page</div>
+  </BorderAnimatedContainer>;
 }
 export default LoginPage;
