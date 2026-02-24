@@ -2,12 +2,14 @@
   "name": "chatapp",
   "version": "1.0.0",
   "description": "",
+  
   "main": "index.js",
     "engines": {
-    "node": ">=20.0.0"
-  },
+  "node": "20.x"
+},
  "scripts": {
-    "build": "pnpm install && pnpm -C frontend build && pnpm -C backend build",
+    "builds": "pnpm install && pnpm -C frontend build && pnpm -C backend build",
+    "build":"pnpm install --prod=false && pnpm -C frontend build && pnpm -C backend build",
     "start": "pnpm -C backend start"
   },
   "keywords": [],
