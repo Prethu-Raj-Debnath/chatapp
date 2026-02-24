@@ -5,8 +5,8 @@
   
   "main": "index.js",
     "engines": {
-  "node": "20.x"
-},
+    "node": ">=20.0.0"
+  },
  "scripts": {
     "builds": "pnpm install && pnpm -C frontend build && pnpm -C backend build",
     "build":"pnpm install --prod=false && pnpm -C frontend build && pnpm -C backend build",
